@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 let who = ["the dog", "my granma", "his turtle", "my bird"];
 let what = ["eat", "pissed", "crushed", "broked"];
-let what_1 = ["my homework", "my phone", "my book"];
+let where = ["my homework", "my phone", "my book"];
 let when = [
   "before the class",
   "right in time",
@@ -18,16 +18,17 @@ let when = [
 function get_num(length) {
   return Math.floor(Math.random() * length);
 }
-var a = (window.onload = function() {
-  //write your code here
 
-  var excuse =
-    who[get_num(who.length)] +
-    " " +
-    what[get_num(what.length)] +
-    " " +
-    what_1[get_num(what_1.length)] +
-    " " +
-    when[get_num(when.length)];
-  document.getElementById("excuse").innerHTML = excuse;
-});
+function generateExcuse(arr1, arr2, arr3, arr4) {
+  return [
+    arr1[get_num(arr1.length)], 
+    arr2[get_num(arr2.length)],
+    arr3[get_num(arr3.length)],
+    arr4[get_num(arr4.length)]
+  ].join(" ");
+}
+
+window.onload = function() {
+  //write your code here
+  document.getElementById("excuse").innerHTML = generateExcuse(who, what, where, when);
+};
